@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<<!-- Todo List HTML -->
+
+<input #newTodo placeholder="Add Todo"
+       (keyup.enter)="addTodo(newTodo.value); newTodo.value='' ">
+<ul>
+    <li *ngFor="let todo of store.TodoListItem">
+        <todo-item [todo-item]="todo-item"></todo-item>
+    </li>
+</ul>

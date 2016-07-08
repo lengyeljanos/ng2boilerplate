@@ -1,0 +1,12 @@
+<!--Todo Item-->
+<div class="todo-container">
+    {{ todo.title }}
+    <button (click)="toggleFinishTodo(todo)">
+        <i class="fa fa-2x"
+           [class.fa-star]="todo.finished"
+           [class.fa-star-o]="!todo.finished"></i>
+    </button>
+    <button (click)="removeTodo(todo)">
+        <i class="fa fa-trash fa-2x"></i>
+    </button>
+</div>
