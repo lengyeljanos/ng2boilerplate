@@ -1,0 +1,13 @@
+<!--Todo Item-->
+<div class="todo-container">
+    <div class="todo-info">
+        <h3 class="heading-name"><pre>{{todo | json}}</pre></h3>
+        <!--<div class="todo-item">{{todo.details}}</div>-->
+    </div>
+    <button class="todo-action" (click)="toggleFinishedTodo(todo)">
+        <i class="fa fa-2x" [class.fa-check-square-o]="todo.finished" [class.fa-square-o]="!todo.finished"></i>
+    </button>
+    <button class="todo-action" (click)="removeTodo(todo)">
+        <i class="fa fa-trash fa-2x"></i>
+    </button>
+</div>

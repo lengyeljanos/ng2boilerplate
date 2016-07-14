@@ -1,29 +1,29 @@
 // Actions
 
-import { TodoListItem as TodolistItemModel} from '../store/todo.store';
+import { TodoListItem as TodoListItemModel} from './store/todo.store';
 
 export interface ITodoAction {
     type: string;
     id: number;
-    name?: string;
+    title?: string;
 }
 
-export function addTodo(name: string, id: number): ITodoAction {
+export function _addTodo(title: string, id: number): ITodoAction {
     return {
         type: 'ADD',
         id,
-        name
+        title
     };
 }
 
-export function removeContact(id: number): ITodoAction {
+export function _removeTodo(id: number): ITodoAction {
     return {
         type: 'REMOVE',
         id
     };
 }
 
-export function starContact(id: number): ITodoAction {
+export function _toggleFinishedTodo(id: number): ITodoAction {
     return {
         type: 'FINISHED',
         id

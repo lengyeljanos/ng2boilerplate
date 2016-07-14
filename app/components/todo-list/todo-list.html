@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<!-- Todo List HTML -->
+<div id="container">
+    <header>
+    </header>
+    <input class="add-todo" #newTodo placeholder="Add Todo"
+           (keyup.enter)="addTodo(newTodo.value); newTodo.value='' ">
+    <ul class="todo-list">
+        <li *ngFor="let todoitem of store.todoList">
+            <todo-item [todo]="todoitem"></todo-item>
+        </li>
+    </ul>
+</div>

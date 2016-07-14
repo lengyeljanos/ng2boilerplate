@@ -2,20 +2,20 @@
 
 import Immutable = require('immutable');
 import { ITodoAction } from './actions';
-import { TodolistItem as TodoListItemModel} from '../store/todo.store';
+import { TodoListItem as TodoListItemModel} from './store/todo.store';
 
 
 export function reducer(state: Immutable.List<TodoListItemModel> = Immutable.List<TodoListItemModel>(), action: ITodoAction){
-    functions = {
+    let functions = {
         ADD: function(state){
             return state.push({
                 id: action.id,
                 title: action.title,
                 finished: false
-            })
+            });
         },
         REMOVE: function(state){
-            return state.delete(findIndexById())
+            return state.delete(findIndexById());
         },
         FINISHED: function(state){
             return (<any>state).update(findIndexById(), (todo) => {
@@ -25,15 +25,22 @@ export function reducer(state: Immutable.List<TodoListItemModel> = Immutable.Lis
                     finished: !todo.finished
                 };
             });
+
         }
 
     };
 
     function findIndexById() {
-        return state.findIndex((todo) => todo.id === todo.id);
+        return result = state.findIndex((todo) => todo.id === action.id);
     }
 
-    return functions[action.type](state);
+    if (!state) {return {} }
 
+    if (typeof functions[action.type] === "function" ){
+        var result = functions[action.type](state);
+        return result;
+    } else {
+        return state;
+    }
 }
 
