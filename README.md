@@ -1,6 +1,6 @@
 #Angular 2 boilerplate
 
-Simple starter code snippet for Angular 2 with typescript.
+Simple starter code snippet for Angular 2 with typescript and flux architecture.
 
 Prerequisites: Nodejs
 

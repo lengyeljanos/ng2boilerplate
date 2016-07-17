@@ -1,31 +1,34 @@
 // Actions
-
-import { TodoListItem as TodoListItemModel} from './store/todo.store';
-
 export interface ITodoAction {
     type: string;
     id: number;
     title?: string;
 }
 
-export function _addTodo(title: string, id: number): ITodoAction {
-    return {
-        type: 'ADD',
-        id,
-        title
-    };
-}
+import { Injectable } from '@angular/core';
 
-export function _removeTodo(id: number): ITodoAction {
-    return {
-        type: 'REMOVE',
-        id
-    };
-}
 
-export function _toggleFinishedTodo(id: number): ITodoAction {
-    return {
-        type: 'FINISHED',
-        id
+@Injectable()
+export class ActionsService{
+     _addTodo = function(title: string, id: number): ITodoAction {
+        return {
+            type: 'ADD',
+            id,
+            title
+        };
+    };
+
+    _removeTodo = function(id: number): ITodoAction {
+        return {
+            type: 'REMOVE',
+            id
+        };
+    };
+
+    _toggleFinishedTodo = function(id: number): ITodoAction {
+        return {
+            type: 'FINISHED',
+            id
+        };
     };
 }
